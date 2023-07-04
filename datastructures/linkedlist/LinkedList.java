@@ -48,8 +48,14 @@ public class LinkedList<T> {
 
     public void append(T value) {
         Node<T> newNode = new Node<>(value);
-        tail.next = newNode;
-        tail = newNode;
+        // if ll is empty
+        if (length == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
         this.length++;
     }
 }
