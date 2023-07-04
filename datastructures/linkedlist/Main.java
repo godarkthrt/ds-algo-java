@@ -30,5 +30,10 @@ public class Main {
         System.out.println("====================================================");
         System.out.println(ll.removeFirst());
         ll.printList();
+
+        System.out.println("====================================================");
+        ll.append(30);
+        ll.printList();
+        System.out.println(ll.get(2));
     }
 }

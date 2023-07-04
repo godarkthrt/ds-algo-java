@@ -114,4 +114,16 @@ public class LinkedList<T> {
         return Optional.of(tmp.value);
 
     }
+
+    public Optional<T> get(int index) {
+        if (index < 0 || index >= this.length) {
+            // either throw an exception or use optional rather than throwing error
+            return Optional.empty();
+        }
+        Node<T> curr = head;
+        for (int j = 0; j < index; j++) {
+            curr = curr.next;
+        }
+        return Optional.of(curr.value);
+    }
 }
