@@ -98,4 +98,20 @@ public class LinkedList<T> {
 
         this.length++;
     }
+
+    public Optional<T> removeFirst() {
+        if (length == 0) {
+            return Optional.empty();
+        }
+
+        Node<T> tmp = head;
+        head = head.next;
+        tmp.next = null;
+        this.length--;
+        if (this.length == 0) {
+            tail = null;
+        }
+        return Optional.of(tmp.value);
+
+    }
 }

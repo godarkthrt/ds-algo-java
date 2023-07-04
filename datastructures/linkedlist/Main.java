@@ -26,5 +26,9 @@ public class Main {
         System.out.println("====================================================");
         ll.prepend(2);
         ll.printList();
+
+        System.out.println("====================================================");
+        System.out.println(ll.removeFirst());
+        ll.printList();
     }
 }
