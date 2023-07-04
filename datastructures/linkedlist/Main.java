@@ -10,11 +10,17 @@ public class Main {
         ll.printList();
 
         // --------------
-        System.out.println("==============================");
+        System.out.println("====================================================");
         ll.append(20);
         ll.getHead();
         ll.getTail();
         ll.getLength();
+        ll.printList();
+
+        System.out.println("====================================================");
+        ll.append(30);
+        ll.printList();
+        ll.removeLast().ifPresent(i -> System.out.println("removed item : " + i));
         ll.printList();
 
     }

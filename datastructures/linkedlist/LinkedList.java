@@ -1,5 +1,7 @@
 package datastructures.linkedlist;
 
+import java.util.Optional;
+
 public class LinkedList<T> {
 
     private Node<T> head;
@@ -57,5 +59,31 @@ public class LinkedList<T> {
             tail = newNode;
         }
         this.length++;
+    }
+
+    public Optional<T> removeLast() {
+        // if ll is empty, return null or throw an exception
+        // if ll has 1 item
+        // else
+        Node<T> temp = head;
+        Node<T> removeNode;
+        if (this.length == 0) {
+            // there is nothing to remove , fail safe instead of throwing an exception
+            return Optional.empty();
+        } else if (this.length == 1) {
+            removeNode = head;
+            head = null;
+            tail = null;
+            this.length = 0;
+        } else {
+            while (temp.next != tail) {
+                temp = temp.next;
+            }
+            removeNode = tail;
+            tail = temp;
+            tail.next = null;
+            this.length--;
+        }
+        return Optional.of(removeNode.value);
     }
 }
