@@ -6,6 +6,15 @@ public class LinkedList<T> {
     private Node<T> tail;
     private int length;
 
+    class Node<V> {
+        V value;
+        Node<V> next;
+
+        Node(V value) {
+            this.value = value;
+        }
+    }
+
     public LinkedList(T value) {
         Node<T> newNode = new Node<>(value);
         this.head = newNode;
@@ -13,23 +22,34 @@ public class LinkedList<T> {
         this.length = 1;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
+    public void printList() {
         Node<T> curr = head;
+        StringBuilder builder = new StringBuilder();
         while (curr != null) {
-            builder.append(curr.value + " -> ");
+            builder.append(curr.value);
+            builder.append(" -> ");
             curr = curr.next;
         }
-        return builder.toString();
+        builder.append(" null");
+        System.out.println(builder.toString());
     }
 
-    class Node<T> {
-        T value;
-        Node<T> next;
+    public void getHead() {
+        System.out.println("Head : " + head.value);
+    }
 
-        Node(T value) {
-            this.value = value;
-        }
+    public void getTail() {
+        System.out.println("Tail : " + tail.value);
+    }
+
+    public void getLength() {
+        System.out.println("Length : " + length);
+    }
+
+    public void append(T value) {
+        Node<T> newNode = new Node<>(value);
+        tail.next = newNode;
+        tail = newNode;
+        this.length++;
     }
 }
