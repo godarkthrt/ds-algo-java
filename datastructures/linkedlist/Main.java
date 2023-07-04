@@ -23,5 +23,8 @@ public class Main {
         ll.removeLast().ifPresent(i -> System.out.println("removed item : " + i));
         ll.printList();
 
+        System.out.println("====================================================");
+        ll.prepend(2);
+        ll.printList();
     }
 }

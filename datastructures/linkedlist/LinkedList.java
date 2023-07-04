@@ -65,25 +65,37 @@ public class LinkedList<T> {
         // if ll is empty, return null or throw an exception
         // if ll has 1 item
         // else
-        Node<T> temp = head;
-        Node<T> removeNode;
+        Node<T> pre, temp;
+        pre = head;
+        temp = head;
         if (this.length == 0) {
             // there is nothing to remove , fail safe instead of throwing an exception
             return Optional.empty();
         } else if (this.length == 1) {
-            removeNode = head;
             head = null;
             tail = null;
             this.length = 0;
         } else {
-            while (temp.next != tail) {
+            while (temp.next != null) {
+                pre = temp;
                 temp = temp.next;
             }
-            removeNode = tail;
-            tail = temp;
+            tail = pre;
             tail.next = null;
             this.length--;
         }
-        return Optional.of(removeNode.value);
+        return Optional.of(temp.value);
+    }
+
+    public void prepend(T value) {
+        Node<T> newNode = new Node<T>(value);
+        newNode.next = head;
+        this.head = newNode;
+
+        if (this.length == 0) {
+            this.tail = newNode;
+        }
+
+        this.length++;
     }
 }
