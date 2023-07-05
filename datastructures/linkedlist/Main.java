@@ -31,9 +31,22 @@ public class Main {
         System.out.println(ll.removeFirst());
         ll.printList();
 
-        System.out.println("====================================================");
+        System.out.println("==================GET==================================");
         ll.append(30);
         ll.printList();
         System.out.println(ll.get(2));
+
+        System.out.println("===================SET=================================");
+        ll.append(40);
+        System.out.println(ll.set(2, 35));
+        ll.printList();
+
+        System.out.println("====================INSERT================================");
+        System.out.println(ll.insert(2, 32));
+        ll.printList();
+
+        System.out.println("====================REMOVE================================");
+        System.out.println(ll.remove(2));
+        ll.printList();
     }
 }
