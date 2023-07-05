@@ -211,5 +211,26 @@ public class LinkedList<T> {
     }
 
     public void reverse() {
+        if (this.length <= 1) {
+            return;
+        }
+
+        // 3 pointer will be required, pre,curr,next
+        // pre-> null, curr -> head , post -> curr.next
+        Node<T> pre = null;
+        Node<T> curr = head;
+        Node<T> post = head.next;
+        while (post != null) {
+            curr.next = pre;
+            pre = curr;
+            curr = post;
+            post = curr.next;
+            if (post == null) {
+                curr.next = pre;
+            }
+        }
+        Node<T> temp = head;
+        head = tail;
+        tail = temp;
     }
 }

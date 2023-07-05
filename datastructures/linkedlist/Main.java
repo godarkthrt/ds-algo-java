@@ -48,5 +48,9 @@ public class Main {
         System.out.println("====================REMOVE================================");
         System.out.println(ll.remove(2));
         ll.printList();
+
+        System.out.println("====================REVERSE================================");
+        ll.reverse();
+        ll.printList();
     }
 }
