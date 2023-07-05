@@ -207,6 +207,7 @@ public class LinkedList<T> {
         Node<T> temp = pre.next;
         pre.next = temp.next;
         temp.next = null;
+        this.length--;
         return Optional.of(temp.value);
     }
 
@@ -214,23 +215,19 @@ public class LinkedList<T> {
         if (this.length <= 1) {
             return;
         }
+        Node<T> curr = head;
+        head = tail;
+        tail = curr;
 
         // 3 pointer will be required, pre,curr,next
         // pre-> null, curr -> head , post -> curr.next
         Node<T> pre = null;
-        Node<T> curr = head;
         Node<T> post = head.next;
-        while (post != null) {
+        while (curr != null) {
+            post = curr.next;
             curr.next = pre;
             pre = curr;
             curr = post;
-            post = curr.next;
-            if (post == null) {
-                curr.next = pre;
-            }
         }
-        Node<T> temp = head;
-        head = tail;
-        tail = temp;
     }
 }
