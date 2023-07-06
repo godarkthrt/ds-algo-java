@@ -142,28 +142,6 @@ public class LinkedList<T> {
         return true;
     }
 
-    public void insert1(int index, T value) {
-        Node<T> newNode = new Node<>(value);
-        if (this.length == 0 && index == 0) {
-            this.head = newNode;
-            this.tail = newNode;
-            this.length++;
-        }
-        if (index < 0 || index >= this.length) {
-            return;
-        }
-
-        Node<T> pre = head;
-        Node<T> post = head;
-        // 0 -> 1 -> 2 -> 3 -> null
-        for (int i = 0; i < index; i++) {
-            pre = post;
-            post = post.next;
-        }
-        pre.next = newNode;
-        newNode.next = post;
-    }
-
     public boolean insert(int index, T value) {
         if (index < 0 || index > length) {
             return false;
