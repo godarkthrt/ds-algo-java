@@ -133,14 +133,6 @@ public class LinkedList<T> {
     }
 
     public boolean set(int index, T value) {
-        // if (index < 0 || index >= this.length) {
-        // // either throw an exception or ignore and stop here
-        // return false;
-        // }
-        // Node<T> curr = head;
-        // for (int i = 0; i < index; i++) {
-        // curr = curr.next;
-        // }
         Optional<Node<T>> targetNode = getNode(index);
         Node<T> curr = targetNode.isPresent() ? targetNode.get() : null;
         if (curr == null) {
