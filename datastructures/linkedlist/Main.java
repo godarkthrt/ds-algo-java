@@ -52,5 +52,15 @@ public class Main {
         System.out.println("====================REVERSE================================");
         ll.reverse();
         ll.printList();
+
+        System.out.println("====================findMiddleNode================================");
+        ll.append(5);
+        ll.printList();
+        System.out.println(ll.findMiddleNode().getValue());
+
+        System.out.println("====================findMiddleNode--withEvenNumberOfNodes================================");
+        ll.append(3);
+        ll.printList();
+        System.out.println(ll.findMiddleNode_firstMiddleNodeForEvenNumberOfNodes().getValue());
     }
 }

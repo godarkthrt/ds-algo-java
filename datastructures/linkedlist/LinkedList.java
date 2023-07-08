@@ -15,6 +15,10 @@ public class LinkedList<T> {
         Node(V value) {
             this.value = value;
         }
+
+        public V getValue() {
+            return value;
+        }
     }
 
     public LinkedList(T value) {
@@ -199,5 +203,30 @@ public class LinkedList<T> {
             pre = curr;
             curr = post;
         }
+    }
+
+    // for even number of nodes find 2nd of the 2 middle nodes
+    public Node<T> findMiddleNode() {
+        Node<T> slow = head;
+        Node<T> fast = head;
+        // point fast and slow moving pointers to head
+        // until fast is not null and fast.next is not null
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public Node<T> findMiddleNode_firstMiddleNodeForEvenNumberOfNodes() {
+        Node<T> slow = head;
+        Node<T> fast = head;
+
+        while (fast != null && fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
     }
 }
