@@ -62,5 +62,9 @@ public class Main {
         ll.append(3);
         ll.printList();
         System.out.println(ll.findMiddleNode_firstMiddleNodeForEvenNumberOfNodes().getValue());
+
+        System.out.println("====================findKthNodeFromEnd================================");
+        ll.printList();
+        System.out.println(ll.findKthFromEnd(3).value);
     }
 }

@@ -229,4 +229,23 @@ public class LinkedList<T> {
 
         return slow;
     }
+
+    public Node<T> findKthFromEnd(int k) {
+        // point fast and slow pointer to head
+        // move fast pointer k times checking
+        Node<T> fast = head;
+        Node<T> slow = head;
+        for (int i = 0; i < k; i++) {
+            // if i am inside this loop that means there are less number of elements than k
+            if (fast == null) {
+                return null;
+            }
+            fast = fast.next;
+        }
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
 }

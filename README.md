@@ -18,3 +18,14 @@
    - point slow and fast pointer to head.
    - while fast is not null and next node of fast is not null (fast != null, checks if we have already reached to the end of the list & fast.next != null make sure we can move 2 steps in this iteration rather than getting null pointer ).
    - move slow by 1 step and fast by 2 steps and check if slow and fast ever point to the same node, if yes then there is a loop.
+
+3. Find kth node from the end.
+
+- Initialize two pointers: slow and fast, both pointing to the head of the list. \* Move fast k steps ahead:
+  - Start a for loop that iterates k times.
+  - Inside the loop, check if fast is null. If it is, the list has fewer than k nodes, so return null.
+  - Move fast one step ahead (i.e., fast = fast.next).
+- Start a while loop that continues until fast is null:
+  - Move slow one step ahead (i.e., slow = slow.next).
+  - Move fast one step ahead (i.e., fast = fast.next).
+- When the while loop ends, slow will point to the k-th node from the end of the list. Return slow.
